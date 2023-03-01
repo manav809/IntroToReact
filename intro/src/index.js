@@ -50,10 +50,10 @@ function Square(props){
           super(props);
           this.state = {
               history:[{
-                  squares:Array(9).fill(null),
+                  squares:Array(9).fill(null)
               }],
             stepNumber: 0,
-            xIsNext: true,
+            xIsNext: true
           }
       }
     handleClick(i){
@@ -68,13 +68,14 @@ function Square(props){
             history: history.concat([{
                 squares: squares
             }]),
-            xIsNext: !this.state.xIsNext,
+            stepNumber: history.length,
+            xIsNext: !this.state.xIsNext
         });
     }
     jumpTo(step){
         this.setState({
             stepNumber: step, 
-            xIsNext: (step % 2) === 0,
+            xIsNext: (step % 2) === 0
         });
     }
     render() {
@@ -102,7 +103,7 @@ function Square(props){
           <div className="game-board">
             <Board 
                 squares = {current.squares}
-                onClick={(i) => this.handleClick(i)}    
+                onClick={i => this.handleClick(i)}    
             />
           </div>
           <div className="game-info">
